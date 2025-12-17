@@ -14,6 +14,7 @@ class LikeController extends BaseController
     {
         $likeModel = new LikeModel();
 
+        //jika belum like login dulu
         $userId = session()->get('user_id');
         if (!$userId){
             return $this->failUnauthorized('You must be logged in to like a post.');
@@ -28,7 +29,7 @@ class LikeController extends BaseController
             $likeModel->insert(['user_id' => $userId, 'post_id' => $postId]);
             $status = 'liked';
         }
-
+        //jmlh like
         $totalLikes = $likeModel->where('post_id', $postId)->countAllResults();
 
         return $this->respond([
