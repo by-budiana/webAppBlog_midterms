@@ -46,7 +46,7 @@ class PostController extends BaseController
             'search' => $search,
             'userID' => $userID,
             'users' => $users
-        ]);
+        ]); 
 
         //menghitung total like
         foreach ($posts as $post) {

@@ -28,7 +28,7 @@ class LikeController extends BaseController
         } else {
             $likeModel->insert(['user_id' => $userId, 'post_id' => $postId]);
             $status = 'liked';
-        }
+        } 
         //jmlh like
         $totalLikes = $likeModel->where('post_id', $postId)->countAllResults();
 
